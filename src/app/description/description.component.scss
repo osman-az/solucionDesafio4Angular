@@ -1,0 +1,101 @@
+// variables
+$principal: #C2185B;
+$secundario: #303030;
+$azulClaro: #6DB5E7;
+$fondoOscuro: #212529;
+
+article {
+  background-color: $secundario;
+
+  display: grid;
+  grid-template-columns: 0.60fr 0.40fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+
+
+  >.contenerdorIMG {
+    grid-area: 1 / 1 / 2 / 2;
+    // background-color: lightgreen;
+    height: 73vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3%;
+
+    >img {
+      height: 100%;
+      border-radius: 6px;
+    }
+  }
+
+  >.contenedorINF {
+    grid-area: 1 / 2 / 2 / 3;
+    // background-color: lightslategrey;
+    height: 73vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3%;
+
+    .cartaDescripcion {
+      max-width: 75%;
+      color: white;
+
+      >mat-card-content {
+        margin-top: 2%;
+
+        .precioDolar {
+          font-size: 3em;
+          font-weight: 200;
+        }
+
+        .precioBolivar {
+          font-size: 1.5em;
+          font-weight: 200;
+        }
+
+        .descripcion {
+          margin-top: 2%;
+        }
+      }
+
+      >mat-card-actions {
+        display: flex;
+        justify-content: center;
+
+        .botonesOpciones {
+          width: 100%;
+          // background-color: lightgoldenrodyellow;
+          display: flex;
+          justify-content: center;
+
+          >#btn-seleccionar {
+            background-color: $principal;
+            border: none;
+            border-radius: 6px;
+            color: #fff;
+            flex-grow: 1;
+            font-size: 1em;
+            height: 36px;
+            line-height: 20px;
+            margin-left: 3%;
+            margin-right: 3%;
+            min-width: 125px;
+            padding: 0 30px 0 30px;
+            transition: 0.3s;
+            cursor: pointer;
+
+            &:hover {
+              background-color: #e4e6eb;
+              color: #050505;
+              font-size: 12px;
+              transition: 0.3s;
+            }
+          }
+        }
+      }
+    }
+
+  }
+}

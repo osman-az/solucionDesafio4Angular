@@ -1,0 +1,24 @@
+$principal: #C2185B;
+$secundario: #303030;
+$azulClaro: #6DB5E7;
+$fondoOscuro: #212529;
+
+footer {
+    height: 8vh;
+    background-color: $fondoOscuro;
+    border-top: solid $azulClaro 3px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 25px;
+
+    >p {
+        font-size: 20px;
+        color: rgb(208, 208, 208);
+    }
+
+    >img {
+        height: 70%;
+    }
+}

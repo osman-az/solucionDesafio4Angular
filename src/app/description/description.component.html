@@ -1,0 +1,40 @@
+<app-header></app-header>
+
+<article *ngFor="let producto of productos">
+
+  <div class="contenerdorIMG" *ngIf="producto.id === id">
+    <img [src]="producto.imagenURL" alt="{{ producto.titulo }}">
+  </div>
+
+  <div class="contenedorINF" *ngIf="producto.id === id">
+    <mat-card class="cartaDescripcion">
+      <mat-card-header>
+        <mat-card-subtitle>NUEVO</mat-card-subtitle>
+        <mat-card-title>{{ producto.titulo }}</mat-card-title>
+        <mat-divider></mat-divider>
+      </mat-card-header>
+      <mat-card-content>
+        <h1 class="precioDolar">US$ {{ producto.precio }}</h1>
+        <h3 class="precioBolivar">Bs. {{ producto.precio * 25 }}</h3>
+        <mat-divider></mat-divider>
+        <p class="descripcion"><strong>Descripción: </strong>{{ producto.description }}</p>
+        <p class="tipoEnvio"><strong>Tipo de envío: </strong>{{ producto.tipoEnvio }}</p>
+        <mat-divider></mat-divider>
+      </mat-card-content>
+      <mat-card-actions>
+        <a class="botonesOpciones">
+          <button class="btnSeleccionar" id="btn-seleccionar" mat-flat-button color="warn">COMPRAR</button>
+        </a>
+        <a class="botonesOpciones" href="{{ producto.amazonURL }}" target="_blank">
+          <button class="btnSeleccionar" id="btn-seleccionar" mat-flat-button color="warn">VER EN AMAZON</button>
+        </a>
+      </mat-card-actions>
+      <mat-card-footer>
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      </mat-card-footer>
+    </mat-card>
+  </div>
+
+</article>
+
+<app-footer></app-footer>

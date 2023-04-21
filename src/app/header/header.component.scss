@@ -1,0 +1,30 @@
+// variables
+$principal: #C2185B;
+$secundario: #303030;
+$azulClaro: #6DB5E7;
+$fondoOscuro: #212529;
+
+header {
+  background-color: $principal;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 12vh;
+
+  >img:nth-child(1) {
+    height: 80%;
+    cursor: pointer;
+  }
+
+  // >a:nth-child(2) {
+  //   color: white;
+  //   font-size: 2em;
+  //   font-weight: 700;
+  // }
+
+  >img:nth-child(2) {
+    height: 80%;
+    cursor: pointer;
+  }
+}

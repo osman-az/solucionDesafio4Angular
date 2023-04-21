@@ -1,0 +1,74 @@
+<!-- titulo component -->
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <h2>Mejores productos Gaming CALIDAD - PRECIO</h2>
+    <span class="toolbar-spacer"></span>
+    <h4>¡Para el 2023!</h4>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<!-- grilla para las cartas -->
+<mat-grid-list cols="5" rowHeight="500px">
+
+  <!-- cartas que se van a repetir -->
+  <mat-grid-tile *ngFor="let producto of productos">
+    <mat-card class="cartas">
+      <mat-card-header>
+        <mat-card-title>{{ producto.titulo }}</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="{{ producto.imagenURL }}" alt="{{ producto.titulo }}">
+      <mat-card-content>
+        <p class="cartaPrecio"><strong>PRECIO:</strong> US$ <span>{{ producto.precio }}</span></p>
+        <p class="cartaTipoEnvio"><strong>TIPO DE ENVIO: </strong><span>{{ producto.tipoEnvio }}</span></p>
+      </mat-card-content>
+      <mat-card-actions id="acciones-cartas">
+        <a class="botonesOpciones" href="#contenedorImg">
+          <button class="btnSeleccionar" id="btn-seleccionar" mat-flat-button color="warn"
+            (click)="seleccionarProducto(producto)">SELECCIONAR</button>
+        </a>
+        <a class="botonesOpciones" routerLink="/description/{{producto.id}}">
+          <button class="btnSeleccionar" id="btn-seleccionar" mat-flat-button color="warn">IR A DESCRIPCION</button>
+        </a>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<!-- cuando se le da clic a una carta -->
+<div id="contenedorSeleccion" *ngIf="nombreArticulo != ''">
+  <div id="gif1"></div>
+
+  <div id="seccionCentral">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    <ng-container id="informacionA" *ngIf="nombreArticulo != ''">
+      <h4 class="titArt">ARTICULO SELECCIONADO:</h4>
+      <div class="tNormal" [ngClass]="{'tGrande': precioArticulo > 100, 'tNormal' : precioArticulo <= 99}">
+        <h2 [style.font-size]="precioArticulo > 100 ? 'x-large': 'medium'">{{ nombreArticulo }}</h2>
+        <h5 [style.font-size]="precioArticulo > 100 ? 'x-large': 'medium'">PRECIO: US$ <span>{{ precioArticulo
+            }}</span></h5>
+        <p [style.font-size]="precioArticulo > 100 ? 'x-large': 'medium'">TIPO DE ENVIO: <span>{{
+            tipoEnvioArticulo }}</span></p>
+      </div>
+    </ng-container>
+
+    <div id="informacionB" *ngIf="nombreArticulo != ''">
+      <mat-card>
+        <!-- <mat-card-header>
+                    <mat-card-subtitle>CARACTERISTICAS</mat-card-subtitle>
+                </mat-card-header> -->
+        <div id="contenedorImg">
+          <img mat-card-image src="{{ imagenURLarticulo }}" alt="Shiba Inu" width="40%" height="300">
+        </div>
+        <!-- <mat-card-content>
+                    <p>DESCRIPSION: <span>{{ descriptionArticulo }}</span></p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <a mat-button href="{{ amazonURLarticulo }}" target="_blank">VER EN AMAZON</a>
+                </mat-card-actions> -->
+      </mat-card>
+    </div>
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  </div>
+
+  <div id="gif2"></div>
+</div>
